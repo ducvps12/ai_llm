@@ -1,0 +1,9 @@
+models:
+  llama3-8b-instruct-q4km:
+    filename: llama-3-8b-instruct-q4_k_m.gguf
+    url: https://huggingface.co/TheBloke/Llama-3-8B-Instruct-GGUF/resolve/main/llama-3-8b-instruct.Q4_K_M.gguf
+    sha256: 3e4f3c64a90bb787ea5fa4f3f5cc8e0d2f39bd7495cb3a9e74c4c1267d7e5f2d
+  mistral-7b-instruct-q4km:
+    filename: mistral-7b-instruct-q4_k_m.gguf
+    url: https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.2-GGUF/resolve/main/mistral-7b-instruct-v0.2.Q4_K_M.gguf
+    sha256: 7fcd385cbb3ab73b998ed9e92f5ab0d6d6e4ae1365c42a7210f6ce6a68235d68

@@ -1,0 +1,48 @@
+name: architecture_overview
+version: 1
+model: local-llm
+inputs:
+  - name: repo_summary
+    description: "High-level description of the repository structure"
+  - name: manifest
+    description: "Generated project_manifest.json content"
+  - name: dependency_notes
+    description: "Observations about key dependencies or build plugins"
+  - name: follow_up
+    description: "Specific questions or clarifications from the user"
+    optional: true
+template:
+  system: |
+    You are a senior software architect assisting with repository analysis.
+    Provide confident, structured answers grounded strictly in the supplied context.
+    If information is unavailable, say so explicitly instead of speculating.
+  user: |
+    Context summary:
+    ```
+    {{ repo_summary }}
+    ```
+
+    Manifest excerpt:
+    ```json
+    {{ manifest }}
+    ```
+
+    Dependency observations:
+    ```
+    {{ dependency_notes }}
+    ```
+
+    Task: Produce a concise architecture brief that covers:
+      1. Dominant project types and how they interact.
+      2. Build and deployment entrypoints worth highlighting.
+      3. A dependency graph narrative focusing on cross-service relationships.
+      4. Any risks, TODOs, or gaps that might need attention.
+
+    {{#if follow_up}}
+    Additional user request:
+    {{ follow_up }}
+    {{/if}}
+
+    Respond with two sections:
+      - "Architecture Summary" with bullet points ordered by importance.
+      - "Dependency Graph" listing key nodes and relationships in bullet form.

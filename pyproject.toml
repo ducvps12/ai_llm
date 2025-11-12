@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ai-llm-tools"
+version = "0.1.0"
+description = "Repository analysis helpers for LLM workflows"
+readme = "README.md"
+authors = [{ name = "AI Assistant" }]
+requires-python = ">=3.9"
+dependencies = []
+
+[project.optional-dependencies]
+embeddings = ["sentence-transformers>=2.2.0"]
+test = ["pytest>=7.0"]
+
+[project.scripts]
+ai-llm = "project_tools.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["project_tools"]
